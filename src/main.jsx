@@ -11,6 +11,7 @@ import { RouterProvider } from 'react-router/dom'
 import ContectDitels from './Component/ContectDitels/ContectDitels.jsx'
 import Context from './Component/Context/Context.jsx'
 import ContextProvider from './Component/Context/Context.jsx'
+import ErrorPage from './Component/ErrorPage/ErrorPage.jsx'
 const router = createBrowserRouter([
   {path: '/', Component: Root,
     children: [
@@ -18,7 +19,9 @@ const router = createBrowserRouter([
       {path: 'stats', Component: Stats},
       {path: 'timeline', Component: Timeline},
       {path: 'ditels/:id',loader:()=> fetch('/data.json'),Component: ContectDitels}
-    ]
+    ],
+    
+   errorElement: <ErrorPage />
   }
 ])
 createRoot(document.getElementById('root')).render(
