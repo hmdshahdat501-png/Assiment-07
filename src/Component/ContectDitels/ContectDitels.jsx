@@ -13,6 +13,7 @@ import { MyContext } from '../Context/Context';
 const ContectDitels = () => {
 const {call, setCall} = useContext(MyContext)
 const clickCall = (muldata, type) => {
+    alert('data add')
    setCall(prev => [
     ...prev, {
         ...muldata, action: type
@@ -25,6 +26,14 @@ const clickMasge = (muldata, type) => {
         ...muldata, action: type
     }
    ])
+}
+ 
+ const clickVeido = (muldata, type) => {
+    setCall(prev => [
+        ...prev, {
+            ...muldata, action: type
+        }
+    ])
 }
 const params = useParams();
    const data = useLoaderData();
@@ -81,13 +90,13 @@ const params = useParams();
                     <p className='text-2xl'>Call</p>
                 </div>
                 </button>
-                <button onClick={() => clickMasge(muldata, "massage ")}>
+                <button onClick={() => clickMasge(muldata, "massage")}>
                      <div  className=' bg-gray-200 shadow p-4 rounded-xl border-2 border-gray-400 text-center px-20 '>
                    <FaEnvelopeOpenText size={30}/>
                     <p className='text-2xl'>Text</p>
                 </div>
                 </button>
-                 <button>
+                 <button onClick={() => clickVeido(muldata, "vedio")}>
                     <div  className=' bg-gray-200 shadow p-4 rounded-xl border-2 border-gray-400 text-center px-20 '>
                     <MdVideoCall size={30}/>
                     <p className='text-2xl'>Video</p>
