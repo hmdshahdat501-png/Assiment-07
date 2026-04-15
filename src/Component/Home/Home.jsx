@@ -35,7 +35,7 @@ relationships that matter most.</p>
         </div>
         <div className='mx-auto container mt-8'>
             <h2 className='text-xl font-bold'>Your Friends</h2>
-           <div className='grid grid-cols-4 gap-8'>
+           <div className='grid grid-cols-1 gap-8 mx-4 lg:grid-cols-4 mx-0'>
              {
                 data.map(dats => <Card key={dats.id} dats={dats} ></Card>)
             }

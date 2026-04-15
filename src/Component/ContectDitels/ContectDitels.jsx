@@ -6,6 +6,7 @@ import { MdDelete, MdVideoCall, MdWifiCalling3 } from 'react-icons/md';
 import { VscFolderActive } from 'react-icons/vsc';
 import { useLoaderData, useParams } from 'react-router';
 import { MyContext } from '../Context/Context';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -13,7 +14,7 @@ import { MyContext } from '../Context/Context';
 const ContectDitels = () => {
 const {call, setCall} = useContext(MyContext)
 const clickCall = (muldata, type) => {
-    alert('data add')
+   toast.success(" Called Success!");
    setCall(prev => [
     ...prev, {
         ...muldata, action: type
@@ -21,6 +22,7 @@ const clickCall = (muldata, type) => {
    ])
 }
 const clickMasge = (muldata, type) => {
+     toast.success("Massage Success!");
    setCall(prev => [
     ...prev, {
         ...muldata, action: type
@@ -29,6 +31,7 @@ const clickMasge = (muldata, type) => {
 }
  
  const clickVeido = (muldata, type) => {
+     toast.success("VeidoeCall Success!");
     setCall(prev => [
         ...prev, {
             ...muldata, action: type
@@ -40,8 +43,8 @@ const params = useParams();
    const muldata = data.find(dts => dts.id == params.id)
    
     return (
-        <div className='flex container mx-auto gap-4 mt-8'>
-           <div className='text-center'>
+        <div className='container mx-auto gap-4  lg:flex'>
+           <div className='text-center m-4 lg:m-0'>
             <div className=' bg-white shadow rounded-xl p-4 border-2 border-gray-400'>
                 <img src= {muldata.picture} alt="" className='mx-auto rounded-full' />
             <h2 className='font-bold'>{muldata.name}</h2>
@@ -52,7 +55,7 @@ const params = useParams();
             <p className='mt-4 italic font-bold opacity-50'>"{muldata.bio}"</p>
             <p className='mt-4'>Preferred:{muldata.email}</p>
             </div>
-            <div>
+            <div className=''>
             <h2 className='bg-white shadow font-bold mt-4 py-4 flex justify-center items-center gap-3 rounded-xl border-2 border-gray-400'> <LuBellRing size={30} />Snooze 2 weeks</h2>
             <h2 className='bg-white shadow font-bold mt-4 py-4 flex justify-center items-center gap-3 rounded-xl border-2 border-gray-400'><VscFolderActive size={30} /> Archive</h2>
             <h2 className='bg-white shadow font-bold mt-4 py-4 flex justify-center items-center gap-3 rounded-xl text-red-700 border-2 border-gray-400'><MdDelete size={30} /> Delete</h2>
@@ -60,8 +63,8 @@ const params = useParams();
            </div>
            
            <div >
-            <div className='flex justify-between'>
-                <div className='bg-white shadow p-8 rounded-xl border-2 border-gray-400'>
+            <div className='justify-between m-4 lg:flex'>
+                <div className='bg-white shadow p-8 rounded-xl border-2 border-gray-400 mb-4 lg:mb-0'>
                 <h2 className='text-2xl font-bold text-center'>{muldata.days_since_contact}</h2>
                 <p className='text-center mt-4  opacity-50'>Days Since Contact</p>
             </div>
@@ -69,23 +72,23 @@ const params = useParams();
                 <h2 className='text-2xl font-bold text-center'>{muldata.goal}</h2>
                 <p className='text-center mt-4  opacity-50'>Goal (Days)</p>
             </div>
-            <div className='bg-white shadow p-8 rounded-xl border-2 border-gray-400'>
+            <div className='bg-white shadow p-8 rounded-xl border-2 border-gray-400 mt-4 lg:mt-0'>
                 <h2 className='text-2xl font-bold text-center'>{muldata.next_due_date}</h2>
                 <p className='text-center mt-4 opacity-50'>Next Due</p>
             </div>
             </div>
-            <div className='mt-4 bg-white shadow p-8 rounded-xl border-2 border-gray-400'>
-                <div className='flex justify-between items-center  opacity-50'>
+            <div className='mt-4 bg-white shadow p-8 rounded-xl border-2 border-gray-400 m-4 lg:m-0'>
+                <div className='flex justify-between items-center opacity-50'>
                     <h2>Relationship Goal</h2>
                     <button className='btn'>Edit</button>
                 </div>
                 <p>Connect every 30 days</p>
             </div>
-            <div className='mt-8 bg-white shadow py-8 px-4 border-2 border-gray-400 rounded-xl'>
+            <div className='bg-white shadow py-8 px-4 border-2 border-gray-400 rounded-xl mx-4 lg:mt-2'>
                 <h2 className='text-xl font-bold mb-4'>Quick Check-In</h2>
-               <div className='flex gap-5 '>
+               <div className='gap-5 text-center  lg:flex'>
                 <button onClick={() => clickCall(muldata, "call")}>
-                     <div className=' bg-gray-200 shadow p-4 rounded-xl border-2 border-gray-400 text-center px-20 '>
+                     <div className='mb-4 bg-gray-200 shadow p-4 rounded-xl border-2 border-gray-400 text-center px-20 lg:mb-0 '>
                     <MdWifiCalling3 size={30}/>
                     <p className='text-2xl'>Call</p>
                 </div>
@@ -97,7 +100,7 @@ const params = useParams();
                 </div>
                 </button>
                  <button onClick={() => clickVeido(muldata, "vedio")}>
-                    <div  className=' bg-gray-200 shadow p-4 rounded-xl border-2 border-gray-400 text-center px-20 '>
+                    <div  className=' bg-gray-200 shadow p-4 rounded-xl border-2 border-gray-400 text-center px-20 mt-4 lg:mt-0 '>
                     <MdVideoCall size={30}/>
                     <p className='text-2xl'>Video</p>
                 </div>
@@ -105,6 +108,7 @@ const params = useParams();
                </div>
             </div>
            </div>
+                 <ToastContainer />
         </div>
     );
 };

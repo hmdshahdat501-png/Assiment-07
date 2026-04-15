@@ -12,9 +12,9 @@ const Footer = () => {
             <a href=""><FaFacebookSquare  size={40}/></a>
             <a href=""><FaYoutube size={40} /></a>
           </div>
-          <div className='flex justify-between container mx-auto opacity-50 mt-8'>
+          <div className='container mx-auto opacity-50 mt-8 lg:flex justify-between '>
             <p>© 2026 KeenKeeper. All rights reserved.</p>
-            <div className='flex gap-4'>
+            <div className='flex gap-4 justify-center mt-4 lg:mt-0'>
                 <p>Privacy Policy</p>
                 <p>Terms of Service</p>
                 <p> Cookies</p>

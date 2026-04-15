@@ -12,7 +12,7 @@ const Timeline = () => {
        <h2 className="text-4xl font-bold mt-8">Timeline </h2>
        <div>
         {
-            call.map(data => <div className="flex items-center gap-4 border-2 p-4 mt-4 rounded-xl shadow border-gray-400">
+            call.map(data => <div className="flex items-center gap-4 border-2 p-4 mt-4 rounded-xl shadow border-gray-400 mx-4 lg:mx-0">
                 <div>
                     {data.action == 'call' ? <TbPhoneCall size={40} />  : data.action == 'massage' ? <IoIosMailOpen size={40} /> : <MdVideoCall size={40} />}
                 </div>
